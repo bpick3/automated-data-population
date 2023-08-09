@@ -1,10 +1,10 @@
 import openpyxl
 
-# Import the spreadsheet containing the Tick Sheet
+# Import the spreadsheet to be updated
 first_spreadsheet = openpyxl.load_workbook("example_file1.xlsx")
 first_worksheet = first_spreadsheet.active
 
-# Import the spreadsheet containing the exported VoteBuilder data
+# Import the spreadsheet containing the data to be transferred 
 second_spreadsheet = openpyxl.load_workbook("example_export.xlsx")
 second_worksheet = second_spreadsheet.active
 
@@ -39,5 +39,5 @@ for row_idx, row in enumerate(second_worksheet.iter_rows(min_row=2, values_only=
     # Mark the street number as populated
     populated_street_numbers.add(street_number)
 
-# Save the new spreadsheet with the populated Tick Sheet
+# Save the new spreadsheet with the populated data
 first_spreadsheet.save("example_file1.xlsx")
